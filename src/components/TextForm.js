@@ -37,7 +37,7 @@ export default function TextForm(props) {
 
     return (
     <>
-    <div className="container">
+    <div className="container text-center">
         <h1>{props.heading}</h1>
         <div className="mb-3">  
             <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
@@ -46,17 +46,16 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={handleLowClick}>Covert to Lowercase</button>
         <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
     </div>
-    <div className="container my-3 mx-1">
+    <div className="container my-3 text-center">
         <h3 my-1 >Text Summary</h3>   
-        <p>{text.split(" ").length} words and {text.length} Characters</p>
+        <p>{text.trim() === '' ? 0 : text.split(" ").length} words and {text.length} Characters</p>
     </div>
-    <div className="container my-3 mx-1">
+    <div className="container my-3 text-center">
         <h3>Preview:</h3>
         <div className="mb-3">  
             <textarea className="form-control"  ref={textAreaRef} value={text} id="myBox" rows="8"></textarea>
         </div>
-
-        <button onClick={copyToClipboard}>Copy</button>
+        <button className=" btn btn-primary mx-1" onClick={copyToClipboard}>Copy</button>
     </div>
     </>
   )
