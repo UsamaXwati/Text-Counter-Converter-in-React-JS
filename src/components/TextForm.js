@@ -14,10 +14,56 @@ export default function TextForm(props) {
         setText(newText)
     }
     const handleClearClick =  ()=>{
-        console.log("Ascii Button Clicked");
+        console.log("Clear Button Clicked");
         let newText = "";
         setText(newText)
     }
+    
+ const handleMakeClick = ()=>{
+    let newText = '';
+    let arr = text.split(" ");
+     console.log(arr);       
+
+    arr.forEach(myFunc);
+    function myFunc(item) {
+        var c = item.charAt(0);
+        newText+=c;
+    } 
+            
+   setText(newText);
+}
+    const handleCreatePattern = ()=>{
+        let newText = '';
+        let arr = text.split("");
+        
+    }
+
+    const speak = () => {
+        console.log("Speak Button Clicked");
+        let check = text.length;
+        if(check!=0)
+        {
+            let msg = new SpeechSynthesisUtterance(text);
+            window.speechSynthesis.speak(msg);
+            const toogle = document.getElementById('toggle')
+            if (toogle.textContent == "Speak") {
+                toogle.innerHTML = "Stop"
+            }
+            else {
+                toogle.innerHTML = "Speak"
+                if (toogle.innerHTML = "Speak"){
+                    window.speechSynthesis.cancel()
+                }
+            }
+
+        }
+        else{
+            alert('No text to Speak');
+            window.speechSynthesis.cancel()
+        }
+
+    }
+
     const handleOnChange = (event)=>{
         console.log("On Change");
         setText(event.target.value)
@@ -44,7 +90,13 @@ export default function TextForm(props) {
         </div>
         <button className="btn btn-primary mx-1" onClick={handleUpClick}>Covert to Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={handleLowClick}>Covert to Lowercase</button>
-        <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
+        <button className="btn btn-danger mx-1" onClick={handleClearClick}>Clear Text</button>
+        <button className=" btn btn-success mx-1" onClick={copyToClipboard}>Copy</button>
+        <button className=" btn btn-primary mx-1" onClick={handleMakeClick}>Get First Characters</button>
+        <button className=" btn btn-primary mx-1" onClick={handleCreatePattern}>Create Pattern</button>
+        <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2" id="toggle">Speak</button>
+
+
     </div>
     <div className="container my-3 text-center">
         <h3 my-1 >Text Summary</h3>   
