@@ -13,10 +13,16 @@ export default function TextForm(props) {
         let newText = text.toLowerCase();
         setText(newText)
     }
+    const handleClearClick =  ()=>{
+        console.log("Ascii Button Clicked");
+        let newText = "";
+        setText(newText)
+    }
     const handleOnChange = (event)=>{
         console.log("On Change");
         setText(event.target.value)
     }
+
     function copyToClipboard(e) {
         textAreaRef.current.select();
         document.execCommand('copy');
@@ -38,6 +44,7 @@ export default function TextForm(props) {
         </div>
         <button className="btn btn-primary mx-1" onClick={handleUpClick}>Covert to Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={handleLowClick}>Covert to Lowercase</button>
+        <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
     </div>
     <div className="container my-3 mx-1">
         <h3 my-1 >Text Summary</h3>   
@@ -46,7 +53,7 @@ export default function TextForm(props) {
     <div className="container my-3 mx-1">
         <h3>Preview:</h3>
         <div className="mb-3">  
-            <textarea className="form-control" ref={textAreaRef} value={text} id="myBox" rows="8"></textarea>
+            <textarea className="form-control"  ref={textAreaRef} value={text} id="myBox" rows="8"></textarea>
         </div>
 
         <button onClick={copyToClipboard}>Copy</button>
