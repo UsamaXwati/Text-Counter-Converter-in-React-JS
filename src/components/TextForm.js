@@ -32,11 +32,7 @@ export default function TextForm(props) {
             
    setText(newText);
 }
-    const handleCreatePattern = ()=>{
-        let newText = '';
-        let arr = text.split("");
-        
-    }
+
 
     const speak = () => {
         console.log("Speak Button Clicked");
@@ -93,7 +89,7 @@ export default function TextForm(props) {
         <button className="btn btn-danger mx-1" onClick={handleClearClick}>Clear Text</button>
         <button className=" btn btn-success mx-1" onClick={copyToClipboard}>Copy</button>
         <button className=" btn btn-primary mx-1" onClick={handleMakeClick}>Get First Characters</button>
-        <button className=" btn btn-primary mx-1" onClick={handleCreatePattern}>Create Pattern</button>
+        
         <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2" id="toggle">Speak</button>
 
 
