@@ -80,9 +80,9 @@ export default function TextForm(props) {
     return (
     <>
     <div className="container text-center">
-        <h1>{props.heading}</h1>
+        <h1 style={{color: props.mode==='light'?'black':'white'}}>{props.heading}</h1>
         <div className="mb-3">  
-            <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+        <textarea className="form-control" value={text} style={{backgroundColor: props.mode==='light'?'#383839':'white', color: props.mode=='light'?'white':'#383839'}} onChange={handleOnChange} id="myBox" rows="8"></textarea>
         </div>
         <button className="btn btn-primary mx-1" onClick={handleUpClick}>Covert to Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={handleLowClick}>Covert to Lowercase</button>
@@ -94,14 +94,14 @@ export default function TextForm(props) {
 
 
     </div>
-    <div className="container my-3 text-center">
+    <div className="container my-3 text-center" style={{color: props.mode==='light'?'#383839':'white'}}>
         <h3 my-1 >Text Summary</h3>   
         <p>{text.trim() === '' ? 0 : text.split(" ").length} words and {text.length} Characters</p>
     </div>
-    <div className="container my-3 text-center">
+    <div className="container my-3 text-center" style={{color: props.mode==='light'?'#383839':'white'}}>
         <h3>Preview:</h3>
         <div className="mb-3">  
-            <textarea className="form-control"  ref={textAreaRef} value={text} id="myBox" rows="8"></textarea>
+            <textarea className="form-control"  ref={textAreaRef} value={text.length>0?text:'Enter something in above text area to preview'} id="myBox" rows="8"></textarea>
         </div>
         <button className=" btn btn-primary mx-1" onClick={copyToClipboard}>Copy</button>
     </div>
