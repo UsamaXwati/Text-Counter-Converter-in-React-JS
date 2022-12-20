@@ -73,7 +73,7 @@ export default function TextForm(props) {
         setCopySuccess('Copied!');
       };
     
-    const [text, setText] = useState('Enter Text Here');    
+    const [text, setText] = useState('');    
     const [copySuccess, setCopySuccess] = useState('Enter Text Here');    
     const textAreaRef = useRef(null);
 
