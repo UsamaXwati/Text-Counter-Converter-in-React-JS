@@ -21,13 +21,13 @@ function App() {
     if (mode==='dark') {
         setmode('light')
         document.body.style.backgroundColor='white'
-        showAlert("dark mode enabled","success")
+        showAlert("Light mode enabled","success")
 
     }
     else{
       setmode('dark')
       document.body.style.backgroundColor='black'
-      showAlert("light mode enabled","success")
+      showAlert("Dark mode enabled","success")
     }
   }
   return (
