@@ -17,6 +17,12 @@ function App() {
       setalert(null)
     }, 1000);
   }
+
+  const select = ()=>{
+    // let choose = document.getElementById('color').value;
+    document.body.style.backgroundColor = document.getElementById('color').value;;
+  }
+
   const toggleMode =()=>{
     if (mode==='dark') {
         setmode('light')
@@ -33,7 +39,7 @@ function App() {
   return (
     <>
         {/* <Navbar /> */}
-      <Navbar title="Text Counter & Converter" aboutText="About" mode={mode} toggleMode={toggleMode}/>
+      <Navbar title="Text Counter & Converter"  select={select} aboutText="About" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
       <div className="container my-3">
         {/* <TextForm/> */}
