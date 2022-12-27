@@ -2,27 +2,39 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm'
 import React, {useState} from 'react'
+import Alert from './components/Alert';
 
 function App() {
   const [mode, setmode] = useState('light')
+  const [alert, setalert] = useState(null)
 
+  const showAlert =(message, type)=>{
+    setalert({
+      msg: message,
+      type: type
+    })
+  }
   const toggleMode =()=>{
     if (mode==='dark') {
         setmode('light')
         document.body.style.backgroundColor='white'
+        showAlert("dark mode enabled","success")
+
     }
     else{
       setmode('dark')
       document.body.style.backgroundColor='black'
+      showAlert("light mode enabled","success")
     }
   }
   return (
     <>
         {/* <Navbar /> */}
       <Navbar title="Text Counter & Converter" aboutText="About" mode={mode} toggleMode={toggleMode}/>
+      <Alert alert={alert}/>
       <div className="container my-3">
         {/* <TextForm/> */}
-        <TextForm heading="Enter the Text to Analyze below" mode={mode}/>
+        <TextForm heading="Enter the Text to Analyze below" showAlert={showAlert} mode={mode}/>
       </div>
     </>
   );

@@ -7,16 +7,19 @@ export default function TextForm(props) {
         console.log("upper case was clicked")
         let newText = text.toUpperCase()
         setText(newText)
+        props.showAlert("Converted to Upper Case", "success");
     }
     const handleLowClick = ()=>{
         console.log("Low Case was clicked")    
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("Converted to Lower Case", "success")
     }
     const handleClearClick =  ()=>{
         console.log("Clear Button Clicked");
         let newText = "";
         setText(newText)
+        props.showAlert("Text Cleared!!!", "success");
     }
     
  const handleMakeClick = ()=>{
@@ -71,6 +74,7 @@ export default function TextForm(props) {
         // This is just personal preference.
         // I prefer to not show the whole text area selected.
         setCopySuccess('Copied!');
+        props.showAlert("Copied to Clipboard!!!", "success");
       };
     
     const [text, setText] = useState('');    
