@@ -19,7 +19,11 @@ export default function Navbar(props) {
           </li>
         </ul>
         <div className="mx-4">
-          <input type="color" name="color" onClick={props.select} id="color" />
+        <span class="position-absolute top-0 start-20  translate-top badge rounded-pill bg-danger">
+    Pick Any Color     <span class="visually-hidden">unread messages</span>
+
+  </span>
+          <input type="color"  name="color" onChange={props.select} id="color" />
         </div>
 
       <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
